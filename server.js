@@ -6,8 +6,25 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 //middleware
-app.use(cors());
 app.use(express.json());
+
+let corsOptions = {};
+
+if (process.env.NODE_ENV === 'production') {
+    corsOptions = {
+        origin: 'https://pern-stack-todo-app.netlify.app/',
+        optionsSuccessStatus: 200,
+        methods: 'GET, PUT, DELETE, POST',
+    };
+} else {
+    corsOptions = {
+        origin: 'http://localhost:3000',
+        optionsSuccessStatus: 200,
+        methods: 'GET, PUT, DELETE, POST',
+    };
+}
+
+app.use(cors(corsOptions));
 
 //ROUTES
 //create a todo
