@@ -1,17 +1,11 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const pool = require('./db.js');
 const dotenv = require('dotenv');
 dotenv.config();
 
 //middleware
 app.use(express.json());
-app.use(
-    cors({
-        origin: 'https://pern-stack-todo-app.netlify.app',
-    })
-);
 
 //ROUTES
 //create a todo
