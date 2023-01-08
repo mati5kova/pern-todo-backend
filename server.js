@@ -3,8 +3,10 @@ const app = express();
 const pool = require('./db.js');
 const dotenv = require('dotenv');
 dotenv.config();
-
+const corsOptions = require('./config/corsOptions.js');
+const cors = require('cors');
 //middleware
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //ROUTES
