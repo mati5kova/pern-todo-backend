@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const pool = require('./db.js');
 const dotenv = require('dotenv');
-dotenv.config();
-const corsOptions = require('./config/corsOptions.js');
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions.js');
+dotenv.config();
 //middleware
 app.use(cors(corsOptions));
 app.use(express.json());
